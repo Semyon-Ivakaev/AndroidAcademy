@@ -57,7 +57,9 @@ class FragmentMoviesDetails: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        // передаем список актеров из DataActors returnListActors() в RecyclerView
         val listActor = DataActors(film).returnListActors(peopleText)
+
         val recycler:RecyclerView = view.findViewById(R.id.actors_rv)
         recycler.adapter = ActorsAdapter(view.context, listActor)
         recycler.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)

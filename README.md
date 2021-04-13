@@ -104,7 +104,8 @@ RecyclerView для актеров:
 
 [Ссылка на домашнее задание](https://docs.google.com/document/d/146nTjhH58N11yfNQLdK92gN0Hfd_P1GqNB9Bg8NH9Do/edit)
 
-Заполнить контент приложения данными из .JSON файлов. А так же загружать картинки использую бибилотеку
+Заполнить контент приложения данными из .JSON файлов использую Coroutines. А так же загружать картинки
+использую бибилотеку
 [Glide](https://code.tutsplus.com/ru/tutorials/code-an-image-gallery-android-app-with-glide--cms-28207)
 
 Файлы находятся в папке "assets":
@@ -117,9 +118,12 @@ RecyclerView для актеров:
     - people.json - содержит информацию об актерах, в data.json лежат массивы с id у каждого из актеров,
     необходимо по этим id получить имя актера и его фотографию.
 
-Для работы с файлами .json использую библиотеку
+Для парсинга .json использую библиотеку
 [moshi](https://github.com/square/moshi) о том, как работать с .json в курсе не было рассказано,
 выбор пал на эту библиотеку, так как ее рекомендуют из за простоты и удобства в использовании.
+Сами файлы считываю в строку при запуске приложения используя отдельный поток:
+
+    - CoroutineScope(Dispatchers.IO + Job() + handlerException)
 
 data классы:
 
@@ -131,4 +135,36 @@ data классы:
 
 Классы для парсинга файлов .json:
 
-    -
+    - DataFilms - тут считываю строку в формате json. И создаю объект Film. Паршу и добавляю в список
+     "костыльным" методом, остальные json буду парсить в массивы с использованием moshi. А так же
+     сразу паршу json с Жанрами фильмов и заменяю в объекте Film массив с id жанров на названия
+     этих жанров.
+
+     - Parcelable - class Parcelable(private var film: Film, private val view: View), сюда передаем
+     фильм и все его поля назначаем на необходимые view экрана FragmentMoviesDetail. То есть
+     при клике на какой то фильм первого экрана, мы передаем этот фильм на следующий экран FragmentMoviesDetail
+     и собираем страничку.
+
+     - DataActors - сложности возникли с ним, не знал как в уже собранный экран передать еще и данные для
+     RecyclerView. Было решено создать этот класс, в котором будет метод returnListActors, который
+     возвращает список во FragmentMoviesDetails и там мы его передаем в ActorsAdapter в методе onViewCreated.
+
+
+Работа с Glide:
+
+        private fun loadPosterImage(url: String) {
+            Glide.with(view.context)
+                .load(url)
+                .placeholder(R.drawable.movie1)
+                .into(backdrop_path)
+        }
+
+        - .load загружает картинку по переданному в метод url;
+
+        - .placeholder(R.drawable.movie1) то, что будет отображаться на экране, пока идет загрузка;
+
+        - .into(backdrop_path), backdrop_path: ImageView = view.findViewById(R.id.image)
+
+----------------------------------------------------------------------------------------------------
+
+![Итоговый результат приложения](https://github.com/Semyon-Ivakaev/AndroidAcademy/tree/master/readme_image/homework#5_done.mp4)
