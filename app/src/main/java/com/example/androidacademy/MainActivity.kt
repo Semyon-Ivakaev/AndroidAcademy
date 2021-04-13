@@ -8,7 +8,6 @@ import com.example.androidacademy.data.Film
 
 
 class MainActivity : AppCompatActivity(), FragmentMoviesDetailsClickListener, FragmentMoviesListClickListener {
-    private lateinit var textView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +15,7 @@ class MainActivity : AppCompatActivity(), FragmentMoviesDetailsClickListener, Fr
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .add(R.id.main_container, FragmentMoviesList()) // FragmentMoviesList()
+                    .add(R.id.main_container, FragmentMoviesList())
                     .commit()
         }
     }

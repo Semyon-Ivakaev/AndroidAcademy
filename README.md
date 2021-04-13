@@ -4,9 +4,11 @@
 Ниже распишу по пунктам каждое задание, а их было 5.
 
 Домашнее задание #1:
+
 Создать репозиторий под проект на GitHube - Done.
 
 Домашнее задание #2:
+
 [Ссылка на домашнее задание](https://docs.google.com/document/d/e/2PACX-1vQ0axff0WGoR9pgNA-QnYHQFy_Vc6yzqTjPNesRIpEYY89p3OzBqd0SJVgQxHJ7isxxjL2hXWo8_8Fp/pub)
 Сверстать экран, который будет отображаться при открытии информации о фильме - Done.
 
@@ -17,6 +19,7 @@ XML: fragment_movies_details.xml
 Используются:
 
     - ConstraintLayout;
+
     - ScrollView;
 
     - Guideline (begin/end - 16dp);
@@ -32,4 +35,29 @@ XML: fragment_movies_details.xml
 ![До](https://github.com/Semyon-Ivakaev/AndroidAcademy/tree/master/readme_image/homework1.png)
 
 ![После](https://github.com/Semyon-Ivakaev/AndroidAcademy/tree/master/readme_image/homework1_done.png)
+
+Домашнее задание #3:
+
+[Ссылка на домашнее задание](https://docs.google.com/document/d/e/2PACX-1vRinJc51_6FSPPjN11LvWY8sJmL44uQzeks2wpg-OtptXXhV4I48aGWsHsuVbsHIbPdSB1xfNvQZPJ_/pub)
+Сверстать дополнительный экран, на котором будет фильм. При нажатии на этот фильм будет открываться
+экран с информацией о фильме.
+
+Данное задание было переделано. На страницу с фильмами добавлен RecyclerView, окно с фильмом
+вынесен во view_holder_movie.xml
+
+XML:
+
+    - view_holder_movie.xml;
+
+    - fragment_movies_list.xml.
+
+Экраны переделаны из Activity во Fragment. Приложение делается по принципу SingleActivity:
+
+    - MainActivity;
+
+    - FragmentMoviesList;
+
+    - FragmentMoviesDetails.
+
+
 
