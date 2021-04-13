@@ -21,6 +21,6 @@ XML: fragment_movies_details.xml
     - RecyclerView (для нижнего модуля, где будут актеры) - заменил в следующих заданиях.
 
 Как должно быть:
-[До](https://github.com/Semyon-Ivakaev/AndroidAcademy/tree/master/readme_image/homework1.png)
-[После](https://github.com/Semyon-Ivakaev/AndroidAcademy/tree/master/readme_image/homework1_done.png)
+![До](https://github.com/Semyon-Ivakaev/AndroidAcademy/tree/master/readme_image/homework1.png)
+![После](https://github.com/Semyon-Ivakaev/AndroidAcademy/tree/master/readme_image/homework1_done.png)
 
