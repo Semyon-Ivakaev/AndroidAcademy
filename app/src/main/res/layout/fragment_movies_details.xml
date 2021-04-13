@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/scrollFilmDetails"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_height="match_parent"
+    android:background="#191926"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        tools:context=".MovieDetailsActivity"
+        android:layout_height="wrap_content"
+        >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/content_begin_guideline"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintGuide_begin="16dp"
+            android:orientation="vertical"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/content_end_guideline"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintGuide_end="16dp"
+            android:orientation="vertical"/>
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            tools:src="@drawable/orig"
+            app:layout_constraintBottom_toTopOf="@id/image_barrier"
+            app:layout_constraintEnd_toEndOf="@id/content_end_guideline"
+            app:layout_constraintStart_toStartOf="@id/content_begin_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:textSize="20sp"
+            android:textColor="#6D6D80"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/content_begin_guideline"
+            android:layout_marginTop="52dp" />
+
+        <TextView
+            android:id="@+id/filmAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/content_begin_guideline"
+            app:layout_constraintBottom_toTopOf="@id/image_barrier"
+            android:layout_marginBottom="8dp"
+            tools:text="@string/_13"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:textColor="@color/white"/>
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/image_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="image"
+            app:barrierDirection="bottom"/>
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/filmName"
+            android:textStyle="bold"
+            android:minLines="1"
+            android:textColor="#ECECEC"
+            android:textSize="40sp"
+            app:layout_constraintTop_toBottomOf="@id/image_barrier"
+            app:layout_constraintStart_toStartOf="@id/content_begin_guideline"
+            android:layout_marginEnd="16dp"/>
+
+        <TextView
+            android:id="@+id/tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/tag"
+            android:textColor="#FF3466"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/textName"
+            app:layout_constraintStart_toStartOf="@id/content_begin_guideline"/>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_marginTop="8dp"
+            android:numStars="5"
+            android:stepSize="1"
+            android:rating="4"
+            android:progressTint="@color/pink_star"
+            android:progressBackgroundTint="@color/grey_star"
+            app:layout_constraintStart_toStartOf="@id/content_begin_guideline"
+            app:layout_constraintTop_toBottomOf="@id/tag"
+            android:theme="@style/RatingBar"/>
+
+        <TextView
+            android:id="@+id/review_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reviews"
+            android:textStyle="bold"
+            android:textColor="#6D6D80"
+            app:layout_constraintTop_toBottomOf="@id/tag"
+            app:layout_constraintStart_toEndOf="@id/ratingBar"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="9dp"
+            />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/name_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:constraint_referenced_ids="ratingBar"
+            app:barrierDirection="bottom"/>
+
+        <TextView
+            android:id="@+id/storyline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Storyline"
+            app:layout_constraintTop_toTopOf="@id/name_barrier"
+            app:layout_constraintStart_toStartOf="@id/content_begin_guideline"
+            android:textColor="#ECECEC"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginTop="22dp"/>
+
+        <TextView
+            android:id="@+id/overview"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            tools:text="@string/content_text"
+            android:textColor="#6D6D80"
+            android:textSize="14sp"
+            android:paddingTop="16dp"
+            android:textAlignment="textStart"
+            app:layout_constraintTop_toBottomOf="@id/storyline"
+            app:layout_constraintStart_toStartOf="@id/content_begin_guideline"
+            app:layout_constraintEnd_toEndOf="@id/content_end_guideline"
+            android:paddingBottom="16dp"/>
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/content_text_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="overview"
+            app:barrierDirection="bottom"/>
+
+        <TextView
+            android:id="@+id/cast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cast"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/content_text_barrier"
+            app:layout_constraintStart_toStartOf="@id/content_begin_guideline"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/actors_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/content_end_guideline"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/content_begin_guideline"
+            app:layout_constraintTop_toBottomOf="@id/cast"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
