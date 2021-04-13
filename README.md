@@ -167,4 +167,4 @@ data классы:
 
 ----------------------------------------------------------------------------------------------------
 
-![Итоговый результат приложения](https://github.com/Semyon-Ivakaev/AndroidAcademy/tree/master/readme_image/homework#5_done.mp4)
+[Итоговый результат приложения(видео добавлено в гугл диск)](https://drive.google.com/drive/u/0/folders/1KGSRKU-_nkeLTlWyHJtf93fgHAxewxBa)
